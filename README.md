@@ -12,3 +12,7 @@ WHERE a.reaction = 'heart'
 select * FROM los_angeles_restaurant_health_inspections a
 
 WHERE program_status = 'INACTIVE'
+
+
+    
+                
