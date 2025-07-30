@@ -59,5 +59,37 @@ def count_words(sentence):
         count = count+1
         
     return count 
+
+    OR
+
+    def word_count(sentence):
+    
+         words = sentence.split()
+    
+    return len(words)
+
+## Website visitors tracking
+
+import matplotlib.pyplot as plt
+
+df.head()
+
+plt.figure(figsize=(14,7))
+
+plt.plot(df['date'], df['visitors'], color = 'midnightblue')
+
+plt.title("Visitors", fontsize= 16)
+
+plt.xlabel("Date", fontsize = 12)
+
+plt.ylabel("Number of Visitors", fontsize= 12)
+
+plt.xticks(rotation=45)
+
+plt.grid(True, alpha=0.3)
+
+plt.tight_layout()
+
+plt.show()
     
                 
