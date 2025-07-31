@@ -92,4 +92,56 @@ plt.tight_layout()
 
 plt.show()
     
+## Abigail Breslin Nominations
+
+SELECT count(DISTINCT movie) 
+
+FROM oscar_nominees 
+
+WHERE nominee = 'Abigail Breslin'
+
+## Common Words in Two Sentences
+
+import re
+
+def find_common_words(input):
+   
+    sentence1=input[0].lower()
+    
+    sentence2=input[1].lower()
+    
+    # for splitting and removing !, ? etc
+    
+    words1 = re.findall(r'\b\w+\b', sentence1)
+    
+    words2 = re.findall(r'\b\w+\b', sentence2)
+    
+    st = set()
+    
+    l = []
+    
+    for val1 in words1:
+    
+        for val2 in words2:
+        
+            if val1 == val2 and val1 not in st:
+            
+                st.add(val1)
                 
+                l.append(val1) 
+                
+    return sorted(l)           
+                
+    
+## Smartphone market share
+import matplotlib.pyplot as plt
+
+df.head()
+
+plt.figure(figsize=(8, 6))
+
+plt.pie(df['market_share'], labels=df['brand'], colors=['turquoise', 'tomato', 'orchid'])
+
+plt.title("Smartphone")
+
+plt.show()
