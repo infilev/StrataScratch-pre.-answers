@@ -145,3 +145,74 @@ plt.pie(df['market_share'], labels=df['brand'], colors=['turquoise', 'tomato', '
 plt.title("Smartphone")
 
 plt.show()
+
+
+## Number of Comments Per User in 30 days before 2020-02-10
+
+select user_id, SUM(number_of_comments)  AS total_comments
+
+FROM fb_comments_count 
+
+WHERE created_at BETWEEN '2020-01-11' AND '2020-02-09'
+
+GROUP BY user_id
+
+HAVING sum(number_of_comments)>0
+
+## Replace Nulls with Preceding Non-nulls
+
+def replace_null_values(lst):
+
+    prev = None
+    
+    for i in range(len(lst)):
+    
+        if lst[i] is not None:
+        
+            prev = lst[i]
+            
+        elif prev is not None:
+        
+            lst[i] = prev
+            
+    return lst
+
+
+ ## Feedback word cloud
+ 
+ from wordcloud import WordCloud
+ 
+import matplotlib.pyplot as plt
+
+
+feedback = [
+    "The new dashboard is amazing and very responsive.",
+    "I love the integration with third-party apps.",
+    "Dark mode is a fantastic addition!",
+    "Performance has improved significantly.",
+    "Would be great to have more export options."
+]
+
+key_features = {"dashboard", "integration", "dark", "performance", "export"}
+
+
+text = " ".join(feedback)
+
+
+def color_func(word, *args, **kwargs):
+
+    return 'violet' if word.lower() in key_features else 'lavender'
+
+
+wordcloud = WordCloud(width=800, height=400, background_color='white', color_func=color_func).generate(text)
+
+plt.figure(figsize=(10, 5))
+
+plt.imshow(wordcloud, interpolation='bilinear')
+
+plt.axis("off")
+
+plt.show()
+
+
+
