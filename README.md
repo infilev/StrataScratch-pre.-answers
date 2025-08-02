@@ -214,5 +214,34 @@ plt.axis("off")
 
 plt.show()
 
+## Captain Base Pay
 
+SELECT employeename, basepay
 
+FROM sf_public_salaries
+
+WHERE jobtitle LIKE '%CAPTAIN%';
+
+## Discovering Max Value in Dictionary
+
+def find_max_value(dictionary):
+
+    max_value = float('-inf')
+    
+    max_key = None
+    
+    max_index = -1
+
+    for index, key in enumerate(dictionary):
+    
+        value = dictionary[key]
+        
+        if value > max_value:
+        
+            max_value = value
+            
+            max_key = key
+            
+            max_index = index
+
+    return [max_value, max_key, max_index]
