@@ -1,3 +1,37 @@
+## Submission Types
+
+#### SQL
+
+SELECT user_id
+
+FROM loans
+
+WHERE type IN ('Refinance', 'InSchool')
+
+GROUP BY user_id
+
+HAVING COUNT(DISTINCT type) = 2;
+
+####
+
+import pandas as pd
+
+
+loans.head()
+
+refinance_users = set(loans[loans['type'] == 'Refinance']['user_id'])
+
+
+inschool_users = set(loans[loans['type'] == 'InSchool']['user_id'])
+
+
+common_users = refinance_users & inschool_users  # Intersection of both sets
+
+
+result_df = pd.DataFrame({'user_id': list(common_users)})
+
+print(result_df)
+
 ## Find all posts that were reacted to with a heart
 #### SQL
 SELECT b.* FROM
@@ -99,14 +133,6 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 
 plt.show()
-    
-## Abigail Breslin Nominations
-
-SELECT count(DISTINCT movie) 
-
-FROM oscar_nominees 
-
-WHERE nominee = 'Abigail Breslin'
 
 ## Common Words in Two Sentences
 
