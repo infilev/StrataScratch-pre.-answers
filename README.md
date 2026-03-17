@@ -1,5 +1,5 @@
 ## Find all posts that were reacted to with a heart
-# SQL
+#### SQL
 SELECT b.* FROM
 
 facebook_reactions a JOIN facebook_posts b
@@ -8,7 +8,7 @@ ON a.post_id = b.post_id
 
 WHERE a.reaction = 'heart'
 
-# PANDAS: 
+#### PANDAS: 
 import pandas as pd
 
 df = pd.merge(facebook_reactions, facebook_posts, on = 'post_id', how = 'left')
