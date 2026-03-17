@@ -10,7 +10,9 @@ WHERE a.reaction = 'heart'
 
 # PANDAS: 
 import pandas as pd
+
 df = pd.merge(facebook_reactions, facebook_posts, on = 'post_id', how = 'left')
+
 df[df['reaction'] == 'heart'][['post_id', 'poster_x', 'post_text', 'post_keywords', 'post_date']].rename(columns = {'poster_x': 'poster'}).drop_duplicates()
 
 ## Find all inspections which are part of an inactive program
