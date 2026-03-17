@@ -1,4 +1,5 @@
 ## Find all posts that were reacted to with a heart
+# SQL
 SELECT b.* FROM
 
 facebook_reactions a JOIN facebook_posts b
@@ -6,6 +7,11 @@ facebook_reactions a JOIN facebook_posts b
 ON a.post_id = b.post_id 
 
 WHERE a.reaction = 'heart'
+
+# PANDAS: 
+import pandas as pd
+df = pd.merge(facebook_reactions, facebook_posts, on = 'post_id', how = 'left')
+df[df['reaction'] == 'heart'][['post_id', 'poster_x', 'post_text', 'post_keywords', 'post_date']].rename(columns = {'poster_x': 'poster'}).drop_duplicates()
 
 ## Find all inspections which are part of an inactive program
 
