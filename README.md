@@ -253,3 +253,19 @@ def find_max_value(dictionary):
             max_index = index
 
     return [max_value, max_key, max_index]
+
+## Abigail Breslin Nominations
+
+#### Pandas
+
+import pandas as pd
+
+df = oscar_nominees.copy()
+
+df[df['nominee'] == 'Abigail Breslin']
+
+#### SQL
+
+select count(DISTINCT movie) FROM oscar_nominees 
+
+WHERE nominee = 'Abigail Breslin'
