@@ -1,3 +1,28 @@
+## Mobile & Web Users
+
+#### SQL
+SELECT log_date, COUNT(DISTINCT user_id) AS user_count
+
+FROM 
+
+(
+    SELECT user_id, log_date FROM mobile_logs
+    
+    UNION
+    
+    SELECT user_id, log_date FROM web_logs
+    
+) t
+
+GROUP BY log_date;
+
+#### Pandas
+import pandas as pd
+
+df = pd.concat([mobile_logs, web_logs])
+
+result = df.groupby("log_date")["user_id"].nunique().reset_index(name="user_count")
+
 ## Submission Types
 
 #### SQL
