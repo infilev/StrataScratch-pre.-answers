@@ -1,3 +1,38 @@
+## Olympic Team Switchers
+
+#### SQL
+SELECT 
+    name,
+    games,
+    sport,
+    medal,
+    COUNT(DISTINCT team) AS team
+FROM olympic_games_athletes
+GROUP BY name
+HAVING COUNT(DISTINCT team) > 1;
+
+#### Pandas 
+SELECT 
+    name,
+    games,
+    sport,
+    medal,
+    COUNT(DISTINCT team) AS team
+FROM olympic_games_athletes
+GROUP BY name
+HAVING COUNT(DISTINCT team) > 1;
+
+#### Pyspark
+SELECT 
+    name,
+    games,
+    sport,
+    medal,
+    COUNT(DISTINCT team) AS team
+FROM olympic_games_athletes
+GROUP BY name
+HAVING COUNT(DISTINCT team) > 1;
+
 ## Mobile & Web Users
 
 #### SQL
